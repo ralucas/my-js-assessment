@@ -7,8 +7,15 @@ define(function() {
     },
 
     containsRepeatingLetter : function(str) {
-        
-        return (/\w+$/).test(str);
+      var strArray = str.split('');
+      for(var i = 0; i < strArray.length; i++) {
+        var val = strArray[i];
+        if (/[A-Za-z]/.test(val)) {
+          var re = new RegExp(strArray[i] + '{2}');
+          if( re.test(str) ) return true;
+        }
+      }
+      return false;
     },
 
     endsWithVowel : function(str) {
@@ -23,7 +30,8 @@ define(function() {
         return (/\b\d{3}[-]\d{3}[-]\d{4}\b/).test(str);
     },
     isUSD : function(str) {
-        return (/^\$(\d{1,3})((\,\d{3})|(\.\d{2}$))|((\,\d{3})|(\.\d{2}$))/).test(str);
+        return (/^\$(?=\d)\d{1,3}\.(?=\d\d(?!\w))|^\$(?=\d)\d{1,3}(\,(?=\d{3})(\d{3}))+(\.(?=\d\d$(?!\w))|$)/).test(str);
     }
   };
 });
+

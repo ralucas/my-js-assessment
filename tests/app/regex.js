@@ -45,21 +45,21 @@ define([
     });
 
     it('you should be able to detect correctly-formatted monetary amounts in USD', function() {
-      expect(answers.isUSD('$132.03')).to.eql(true);
-      expect(answers.isUSD('$32.03')).to.eql(true);
-      expect(answers.isUSD('$2.03')).to.eql(true);
-      expect(answers.isUSD('$1,023,032.03')).to.eql(true);
-      expect(answers.isUSD('$20,933,209.93')).to.eql(true);
-      expect(answers.isUSD('$20,933,209')).to.eql(true);
-      expect(answers.isUSD('$459,049,393.21')).to.eql(true);
-      expect(answers.isUSD('34,344.34')).to.eql(false);
-      expect(answers.isUSD('$,344.34')).to.eql(false);
-      expect(answers.isUSD('$34,344.3')).to.eql(false);
-      expect(answers.isUSD('$34,344.344')).to.eql(false);
-      expect(answers.isUSD('$34,344_34')).to.eql(false);
-      expect(answers.isUSD('$3,432,12.12')).to.eql(false);
-      expect(answers.isUSD('$3,432,1,034.12')).to.eql(false);
-      expect(answers.isUSD('4$3,432,034.12')).to.eql(false);
+      expect(answers.isUSD('$132.03')).to.eql(true, '$132.03');
+      expect(answers.isUSD('$32.03')).to.eql(true, '$32.03');
+      expect(answers.isUSD('$2.03')).to.eql(true, '$2.03');
+      expect(answers.isUSD('$1,023,032.03')).to.eql(true, '$1,023,032.03');
+      expect(answers.isUSD('$20,933,209.93')).to.eql(true, '$20,933,209.93' );
+      expect(answers.isUSD('$20,933,209')).to.eql(true, '$20,933,209');
+      expect(answers.isUSD('$459,049,393.21')).to.eql(true, '$459,049,393.21');
+      expect(answers.isUSD('34,344.34')).to.eql(false, '34,344.34');
+      expect(answers.isUSD('$,344.34')).to.eql(false, '$,344.34');
+      expect(answers.isUSD('$34,344.3')).to.eql(false, '$34,344.3');
+      expect(answers.isUSD('$34,344.344')).to.eql(false, '$34,344.344');
+      expect(answers.isUSD('$34,344_34')).to.eql(false, '$34,344_34');
+      expect(answers.isUSD('$3,432,12.12')).to.eql(false, '$3,432,12.12');
+      expect(answers.isUSD('$3,432,1,034.12')).to.eql(false, '$3,432,1,034.12');
+      expect(answers.isUSD('4$3,432,034.12')).to.eql(false, '4$3,432,034.12');
     });
 
   });

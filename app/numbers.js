@@ -11,7 +11,9 @@ define(function() {
     },
 
     convertToBinary: function(num) {
-        return num.toString(2);
+        var out = (num >>> 0).toString(2);
+        var len = out.length;
+        return ('00000000' + out).substr(len);
     },
 
     multiply: function(a, b) {
